@@ -66,6 +66,18 @@ function rvm_gemset() {
     fi
 }
 
+# Display current vi mode.
+function zle-line-init zle-keymap-select {
+    NORMAL_PROMPT="%{$fg[yellow]%}[%c]|𝖓 %{$reset_color%}"
+    INSERT_PROMPT="%{$fg[cyan]%}[%c]|𝖎 %{$reset_color%}"
+    PROMPT="${${KEYMAP/vicmd/$NORMAL_PROMPT}/(main|viins)/$INSERT_PROMPT}"
+    zle reset-prompt
+}
+
+# Register vi mode display functions
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
 function git_time_since_commit() {
