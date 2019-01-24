@@ -68,9 +68,9 @@ function rvm_gemset() {
 
 # Display current vi mode.
 function zle-line-init zle-keymap-select {
-    NORMAL_PROMPT="%{$fg[yellow]%}%m:%c 😬 %{$reset_color%}"
-    INSERT_PROMPT="%{$fg[cyan]%}%m:%c 🤓 %{$reset_color%}"
-    PROMPT="${${KEYMAP/vicmd/$NORMAL_PROMPT}/(main|viins)/$INSERT_PROMPT}"
+    NORMAL_PROMPT="%{$fg[yellow]%}%m:%c ¶%{$reset_color%}"
+    INSERT_PROMPT="%{$fg[cyan]%}%m:%c &%{$reset_color%}"
+    PROMPT="${${KEYMAP/vicmd/$NORMAL_PROMPT}/(main|viins)/$INSERT_PROMPT} "
     zle reset-prompt
 }
 
